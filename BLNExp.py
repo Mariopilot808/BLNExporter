@@ -44,19 +44,23 @@ class blnexp:
         # Save reference to the QGIS interface
         self.iface = iface
 
+
     def initGui(self):
         # Create action that will start plugin configuration
         self.action = QAction(
             QIcon(":/plugins/blnexp/icon.png"),
-            "Export polygons or lines to Surfer BLN", self.iface.mainWindow())
+            "Export VEctor Data to Surfer BLN", self.iface.mainWindow())
         # connect the action to the run method
         QObject.connect(self.action, SIGNAL("triggered()"), self.run)
 
 
         # Add toolbar button and menu item
         QObject.connect(self.iface, SIGNAL("currentLayerChanged(QgsMapLayer*)"), self.EnablePlugin)
-        self.iface.addToolBarIcon(self.action)
-        self.iface.addPluginToMenu("&BLN Exporter", self.action)
+        self.iface.digitizeToolBar().addAction(self.action)
+        if hasattr ( self . iface , "addPluginToVectorMenu" ):
+            self.iface.addPluginToVectorMenu("&BLN Exporter", self.action)
+        else:
+            self.iface.addPluginToMenu("&BLN Exporter", self.action)
         self.action.setEnabled(False)
 
 
@@ -83,6 +87,12 @@ class blnexp:
         feature = QgsFeature()
         pcent = 0
 
+        #file save dialog
+        fileName = QtGui.QFileDialog.getSaveFileName(self.iface.mainWindow(), 'Save (cancel for default name)', path_absolute, '*.BLN')
+        if len(str (fileName)) == 0:
+            fileName = p
+        else:
+            p = fileName
 
         # create the progress dialog
         progressDialog = QProgressDialog('Exporting...', "Cancel", 0, 100)
@@ -192,12 +202,10 @@ class blnexp:
             return 0
 
 
-
-
     def EnablePlugin(self):
         layer = self.iface.activeLayer()
         if layer <> None:
-            if (layer.geometryType() == QGis.Polygon) or (layer.geometryType() == QGis.Line):
+            if (layer.geometryType() == QGis.Polygon) or (layer.geometryType() == QGis.Line) or (layer.geometryType() == QGis.Point):
                 self.action.setEnabled(True)
                 
             else:
