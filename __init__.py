@@ -23,7 +23,7 @@ def name():
 def description():
     return "Converts Vector layers to BLN"
 def version():
-    return "Version 0.1"
+    return "Version 0.2"
 def icon():
     return "icon.png"
 def qgisMinimumVersion():
