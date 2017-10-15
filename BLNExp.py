@@ -204,7 +204,7 @@ class blnexp:
 
     def EnablePlugin(self):
         layer = self.iface.activeLayer()
-        if layer <> None:
+        if layer <> QgsRasterLayer:
             if (layer.geometryType() == QGis.Polygon) or (layer.geometryType() == QGis.Line) or (layer.geometryType() == QGis.Point):
                 self.action.setEnabled(True)
                 
