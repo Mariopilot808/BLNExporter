@@ -2,10 +2,10 @@
 name=BLN Exporter
 description=Exports line or Polygon shapes to BLN
 category=Vector
-version=0.2
+version=0.3
 qgisMinimumVersion=2.0.0
 author=Mario Noriega
-email=mario@norcex.com
+email=mario.noriegaf@gmail.com
 icon=icon.png
 class_name=blnexp
 
@@ -17,8 +17,8 @@ changelog=
     file saving dialog (cancel for default name)
     accepts point geometrey too
     now in vector toolbar and menu
-    
-        
+    0.3
+    Avoids errors with raster layers on map      
 
 # tags are comma separated with spaces allowed
 tags=BLN, line, polygon, Surfer, vector
