@@ -1,33 +1,43 @@
+; the next section is mandatory
+
 [general]
 name=BLN Exporter
-description=Exports line or Polygon shapes to BLN
-category=Vector
-version=0.3
-qgisMinimumVersion=2.0.0
-author=Mario Noriega
 email=mario.noriegaf@gmail.com
-icon=icon.png
-class_name=blnexp
+author=Mario Noriega
+qgisMinimumVersion=2.0
+description=Exports line or Polygon shapes to BLN
+about=This plugin converts vector layers to Surfer BLN Format. Accepts polygon or line geomnetry. 
+version=0.3
+tracker=https://hub.qgis.org/projects/blnexporter/issues
+repository=https://github.com/Mariopilot808/BLNExporter.git
+; end of mandatory metadata
 
-
+; start of optional metadata
+category=Vector
 changelog=
     0.1
     intial version
     0.2
     file saving dialog (cancel for default name)
-    accepts point geometrey too
+    accepts line geometrey too
     now in vector toolbar and menu
     0.3
-    Avoids errors with raster layers on map      
+    Avoids errors with raster layers on map.    
 
-# tags are comma separated with spaces allowed
+; Tags are in comma separated value format, spaces are allowed within the
+; tag name.
+; Tags should be in English language. Please also check for existing tags and
+; synonyms before creating a new one.
 tags=BLN, line, polygon, Surfer, vector
 
+; these metadata can be empty, they will eventually become mandatory.
 homepage=https://hub.qgis.org/projects/blnexporter
-tracker=https://hub.qgis.org/projects/blnexporter/issues
-repository=https://github.com/Mariopilot808/BLNExporter.git
-# experimental flag
+icon=icon.png
+
+; experimental flag (applies to the single version)
 experimental=True
 
-# deprecated flag (applies to the whole plugin, not just a single version
+; deprecated flag (applies to the whole plugin and not only to the uploaded version)
 deprecated=False
+
+class_name=blnexp
