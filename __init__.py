@@ -5,7 +5,7 @@
                              -------------------
         begin                : 2014-16-09
         copyright            : (C) 2014 by Mario Noriega
-        email                : Mario@norcex.com
+        email                : mario.noriegaf@gmail.com
  ***************************************************************************/
 
 /***************************************************************************
@@ -23,7 +23,7 @@ def name():
 def description():
     return "Converts Vector layers to BLN"
 def version():
-    return "Version 0.2"
+    return "Version 0.3"
 def icon():
     return "icon.png"
 def qgisMinimumVersion():
